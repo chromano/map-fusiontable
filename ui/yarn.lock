@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@agm/core@^1.0.0-beta.0":
+  version "1.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@agm/core/-/core-1.0.0-beta.0.tgz#5ca53f0efa321e1e24c7ba3a6be72f96bccf82a4"
+
 "@angular/animations@^4.0.0":
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-4.3.3.tgz#b71ddd453673929f550b171cca99952b3aaa831c"
@@ -152,6 +156,30 @@
     loader-utils "^1.0.2"
     magic-string "^0.19.0"
     source-map "^0.5.6"
+
+"@ngui/map@^0.18.4":
+  version "0.18.4"
+  resolved "https://registry.yarnpkg.com/@ngui/map/-/map-0.18.4.tgz#5a983f6ea3f0fffd39ec91ca96e7b0129e97fbd7"
+  dependencies:
+    tslib "^1.7.1"
+
+"@types/gapi.auth2@0.0.40":
+  version "0.0.40"
+  resolved "https://registry.yarnpkg.com/@types/gapi.auth2/-/gapi.auth2-0.0.40.tgz#c11c07af555011ca7b028d28a213bfe151af3368"
+  dependencies:
+    "@types/gapi" "*"
+
+"@types/gapi@*":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@types/gapi/-/gapi-0.0.34.tgz#7db4ccaf8d57d353eb7d468d3ce249977736b22c"
+
+"@types/gapi@0.0.33":
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@types/gapi/-/gapi-0.0.33.tgz#4a485c873dc5bfc9829699fd094e144df9e74544"
+
+"@types/googlemaps@^3.26.17":
+  version "3.26.17"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.26.17.tgz#539921ff45999367c51202436bf11ac995662ef5"
 
 "@types/jasmine@*", "@types/jasmine@~2.5.53":
   version "2.5.53"
@@ -3053,6 +3081,13 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
+ng-gapi@^0.0.42-1:
+  version "0.0.42-1"
+  resolved "https://registry.yarnpkg.com/ng-gapi/-/ng-gapi-0.0.42-1.tgz#9b8e750d9efad9c104b1cbea92261a19a32777a8"
+  dependencies:
+    "@types/gapi" "0.0.33"
+    "@types/gapi.auth2" "0.0.40"
+
 no-case@^2.2.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.1.tgz#7aeba1c73a52184265554b7dc03baf720df80081"
@@ -5185,16 +5220,9 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
 
-ws@1.1.2:
+ws@1.1.2, ws@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/ws/-/ws-1.1.2.tgz#8a244fa052401e08c9886cf44a85189e1fd4067f"
-  dependencies:
-    options ">=0.0.5"
-    ultron "1.0.x"
-
-ws@^1.0.1:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-1.1.4.tgz#57f40d036832e5f5055662a397c4de76ed66bf61"
   dependencies:
     options ">=0.0.5"
     ultron "1.0.x"
