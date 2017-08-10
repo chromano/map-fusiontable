@@ -8,20 +8,9 @@
   </div>
   <div class="list">
     <ul>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
-      <li>ADDRESS 1</li>
+      <li *ngFor="let marker of markers">
+        <pre><strong>{{ marker.date_created }}</strong>: {{ marker.address }} ({{ marker.latlng }})</pre>
+      </li>
     </ul>
   </div>
 </div>

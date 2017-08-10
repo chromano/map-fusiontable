@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { NguiMapModule} from '@ngui/map';
 
+import { APIService } from './api.service';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { MapComponent } from './map/map.component';
+import { MapService } from './map/map.service';
 
 const appRoutes: Routes = [
   {path: '', component: LandingComponent},
@@ -29,8 +31,10 @@ const appRoutes: Routes = [
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js'}),
   ],
   providers: [
+    APIService,
     AuthGuard,
-    AuthService
+    AuthService,
+    MapService,
   ],
   bootstrap: [
     AppComponent

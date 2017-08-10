@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {} from '@types/googlemaps';
+import 'rxjs/add/operator/mergeMap';
 
 import { environment } from '../../environments/environment';
 import { AuthService } from '../auth.service';
+
+import { MapService } from './map.service';
 
 @Component({
     selector: 'app-map',
@@ -23,10 +26,16 @@ export class MapComponent implements OnInit {
         }
     };
     private map: google.maps.Map;
+    private markers: Array<{}>;
 
-    constructor(private http: Http, private auth: AuthService) { }
+    constructor(private http: Http, private auth: AuthService,
+                private maps: MapService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.maps.all().subscribe((markers) => {
+            this.markers = markers;
+        });
+    }
 
     lookupTableID(onDone) {
         this.http.get(this.fusion.urls.tables + '?access_token='
@@ -65,14 +74,22 @@ export class MapComponent implements OnInit {
 
     createPOI(point: google.maps.GeocoderResult) {
         const location = point.geometry.location;
-        const locationStr = location.lat() + ',' + location.lng();
 
-        const sql = 'INSERT INTO ' + this.fusion.table.id + ' (Text, Location, Date) '
-            + ' VALUES (\'' + point.formatted_address + '\', \'' +  locationStr
-            + '\', \'' + new Date() + '\')';
-        this.http.post(this.fusion.urls.query + '?access_token='
-            + this.auth.authToken + '&sql=' + sql, {})
+        const data = {
+            address: point.formatted_address,
+            date_created: new Date(),
+            latlng: location.lat() + ',' + location.lng()
+        };
+
+        const sql = `INSERT INTO ${this.fusion.table.id} (Text, Location, Date) `
+            + ` VALUES ('${data.address}', '${data.latlng}','${data.date_created}')`;
+
+        const url = `${this.fusion.urls.query}?access_token=${this.auth.authToken}`
+                  + `&sql=${sql}`;
+        this.http.post(url, {})
+            .flatMap(() => this.maps.create(data))
             .subscribe((response: Response) => {
+                this.markers.push(response);
                 // On valid insertion, recreate fusion table layer so we display
                 // the new record.
                 this.createLayer();
