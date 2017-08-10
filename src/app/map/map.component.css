@@ -1,0 +1,19 @@
+.main {
+    height: 100%;
+}
+
+.main .map {
+    height: 60%;
+}
+
+.main .map ngui-map {
+    height: 100%;
+    width: 100%;
+}
+
+
+.main .list {
+    height: 40%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
