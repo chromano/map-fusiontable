@@ -2,3 +2,5 @@ Django==1.9
 djangorestframework==3.6.3
 httpie==0.9.9
 django-cors-headers==2.1.0
+gunicorn==19.7.1
+honcho==1.0.1
