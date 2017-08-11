@@ -7,5 +7,6 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:8000',
   googleClientID: '908804854354-gvj14ph4omklqp5sfepcmrptdgk42ptt.apps.googleusercontent.com',
+  googleApiKey: 'AIzaSyAsyOKKQlGChukJgsNHs1-DdI5PExZ2dGI',
   tableName: 'SAMPLETEST'
 };

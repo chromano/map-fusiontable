@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { NguiMapModule} from '@ngui/map';
 
+import { environment } from '../environments/environment';
 import { APIService } from './api.service';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
@@ -28,7 +29,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js'}),
+    NguiMapModule.forRoot({apiUrl: `https://maps.google.com/maps/api/js?key=${environment.googleApiKey}`}),
   ],
   providers: [
     APIService,
