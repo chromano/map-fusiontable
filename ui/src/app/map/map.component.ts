@@ -86,14 +86,14 @@ export class MapComponent implements OnInit {
 
         const url = `${this.fusion.urls.query}?access_token=${this.auth.authToken}`
                   + `&sql=${sql}`;
-        this.http.post(url, {})
-            .flatMap(() => this.maps.create(data))
-            .subscribe((response: Response) => {
-                this.markers.push(response);
-                // On valid insertion, recreate fusion table layer so we display
-                // the new record.
-                this.createLayer();
-            });
+        this.http.post(url, {}).subscribe((response: Response) => {
+            // On valid insertion, recreate fusion table layer so we display
+            // the new record.
+            this.createLayer();
+        });
+        this.maps.create(data).subscribe((response) => {
+            this.markers.push(response);
+        });
     }
 
     validateNewPOI(point, onValid) {
