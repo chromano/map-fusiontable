@@ -34,3 +34,7 @@ In order to access your fusion tables, you will have to give consent to this
 application to your google account. When you open the URL above, you will be
 asked to click a button for giving access, this will open a new window, so
 please sure you have the "popup" unblocked.
+
+Also, make sure you have a fusion table called `SAMPLETEST` on your Google
+drive account. This table is supposed to have three columns: Text (STRING),
+Location (LOCATION) and Date (STRING).
