@@ -7,6 +7,7 @@
     </ngui-map>
   </div>
   <div class="list">
+    <p>Clicking any point in the map above will create a new entry in the database</p>
     <ul>
       <li *ngFor="let marker of markers">
         <pre><strong>{{ marker.date_created }}</strong>: {{ marker.address }} ({{ marker.latlng }})</pre>
