@@ -12,7 +12,7 @@ manager. Then execute the commands below, in order:
 
     git clone https://github.com/chromano/map-fusiontable.git
     cd map-fusiontable
-    python3.6 -m venv env
+    python -m venv env
     source env/bin/activate
     pip install -r api/requirements.txt
     (cd ui && yarn)
